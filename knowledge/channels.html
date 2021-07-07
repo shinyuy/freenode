@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/knowledge/knowledge.css">
+    <title>freenode | CertFP</title>
+</head>
+
+<body>
+    <div class="bg-img">
+        <div class="container">
+            <nav class="desktop-nav">
+                <div class="logo"><a href="/index.html">free<span class="green">node</span></a></div>
+                <div>
+                    <ul>
+                        <li>
+                            <a href="/index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="https://webchat.freenode.net/">Chat</a>
+                        </li>
+                        <li>
+                            <a href="#greeting-modal" href="https://freenode.net/kb/all">Knowledge</a>
+                        </li>
+                        <li>
+                            <a href="https://bbs.freenode.net/">Share</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="search_box">
+                    <img class="fas fa-search" src="/images/search.png" alt="Search" />
+                    <input type="text" placeholder="       Search">
+                </div>
+            </nav>
+
+            <!-- Mobile nav -->
+            <nav class="mobile-nav">
+                <div>
+                    <a href="#nav-modal"><img src="/images/nav.png" alt="Navigation icon" /></a>
+                    <p>free<span class="green">node</span></p>
+                </div>
+                <img src="/images/search.png" alt="Search" />
+            </nav>
+
+            <!-- Mobile nav -->
+            <div class="mobile-modal-nav-container" id="nav-modal">
+                <div class="mobile-modal-nav">
+                    <ul>
+                        <li><a href="/index.html">Home</a></li>
+                        <hr>
+                        <li><a href="https://webchat.freenode.net/">Chat</a></li>
+                        <hr>
+                        <!--
+                          <li>Knowledge base</li>
+                      -->
+                        <div class="accordionMenu">
+                            <input type="radio" name="trg1" id="acc1">
+                            <label for="acc1">Knowledge base</label>
+                            <div class="content">
+                                <ul class="inner">
+                                    <li><a href="/knowledge/certfp.html">CertFP</a></li>
+                                    <li><a href="/knowledge/channels.html">Channels</a></li>
+                                    <li><a href="/knowledge/sasl.html">Connecting with SASL</a></li>
+                                    <li><a href="/knowledge/findingchannels.html">Finding Channels</a></li>
+                                    <li><a href="/knowledge/resetpass.html">Resetting your Password</a></li>
+                                    <li><a href="/knowledge/channelmodes.html">Channel Modes</a></li>
+                                    <li><a href="/knowledge/chat.html">Connecting to freenode</a></li>
+                                    <li><a href="/knowledge//extbans.html">Extbans</a></li>
+                                    <li><a href="/knowledge/registration.html">Nickname Registration</a></li>
+                                    <li><a href="/knowledge/usermodes.html">User Modes</a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <hr>
+                        <li><a href="https://bbs.freenode.net/">Share</a></li>
+                        <hr>
+                    </ul>
+                </div>
+
+                <!-- Background, click to close -->
+                <a href="#" class="nav-modal-bg"></a>
+            </div>
+
+            <!-- Modal container -->
+            <div class="modal-container" id="greeting-modal">
+
+                <!-- Modal  -->
+                <div class="modal">
+                    <div>
+                        <ul>
+                            <li><a href="/knowledge/certfp.html">CertFP</a></li>
+                            <li><a href="/knowledge/channels.html">Channels</a></li>
+                            <li><a href="/knowledge/sasl.html">Connecting with SASL</a></li>
+                            <li><a href="/knowledge/findingchannels.html">Finding Channels</a></li>
+                            <li><a href="/knowledge/resetpass.html">Resetting your Password</a></li>
+                        </ul>
+                    </div>
+                    <div class="vl"></div>
+                    <div>
+                        <ul>
+                            <li><a href="/knowledge/channelmodes.html">Channel Modes</a></li>
+                            <li><a href="/knowledge/chat.html">Connecting to freenode</a></li>
+                            <li><a href="/knowledge//extbans.html">Extbans</a></li>
+                            <li><a href="/knowledge/registration.html">Nickname Registration</a></li>
+                            <li><a href="/knowledge/usermodes.html">User Modes</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Background, click to close -->
+                <a href="#" class="modal-bg"></a>
+            </div>
+
+
+            <section class="certfp">
+                <h1>
+                    <span>Cert</span><span class="green">FP</span>
+
+                </h1>
+                <p>
+                    As an alternative to password-based authentication, you can connect to freenode with a TLS
+                    certificate and have services recognise it automatically.
+                </p>
+                <p>
+                    For SASL EXTERNAL to work, you must connect over TLS.
+                </p>
+                <p>
+                    <b>
+                        <p>Creating a self-signed certificate
+                    </b>
+                </p>
+                <p>
+
+                    In order to follow these instructions, you will need the openssl utility. If you are using Windows
+                    and do not have a copy, you might consider using Cygwin.
+                </p>
+                <p>
+                    You can generate a certificate with the following command: </p>
+               
+                <div class="command">
+                    <div>
+                        <span>< &nbsp;</span> <p>openssl req -x509 -new -newkey rsa:4096 -sha256 -days 1096 -nodes -out f</p> <span>&nbsp; ></span>
+                    </div>
+                </div>
+
+                <p>
+                    You will be prompted for various pieces of information about the certificate. The contents do not
+                    matter for our purposes, but openssl needs at least one of them to be non-empty. This certificate
+                    will last about 3 years, so consider setting a calendar reminder.
+                <p>
+                    The <b>.pem</b> file will have the same access to your NickServ account as your password does, so take
+                    appropriate care in securing it.
+                </p>
+                <p>
+                    <b>
+                        <p>Inspecting your certificate
+                    </b>
+                </p>
+                <p>
+
+                    The expiration date can be checked with the following command: </p>
+                </p>
+                <div class="command">
+                    <div>
+                        <span><&nbsp; </span> <p>openssl x509 -in freenode.pem -noout -enddate</p><span>&nbsp; ></span>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-top">
+            <p><a href="/index.html"><span class="dark-blue">free</span><span class="green">node</span></a></p>
+            <p>Quick Links</p>
+            <div class="connect">
+                <p>Connect with us</p>
+                <a href="https://twitter.com/freenodestaff"><img src="/images/twitter.png" alt="Twitter" /></a> 
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <ul>
+                <li><a href="/people/people.html">The people</a></li>
+                <li><a href="/policy/policy.html">The policies</a></li>
+                <li><a href="/acknowledgements/acknowledgements.html">Acknowledgements</a></li>
+                <li><a href="/archive/archive.html">News Archive / RSS / Atom</a></li>
+            </ul>
+            <ul>
+                <li><a href="https://webchat.freenode.net/">Webchat
+                    chat.freenode.net:6697 / non-SSL: 6667</a> </li>
+                <li><a href="https://freenode.live/">freenode #live</a></li>
+                <li><a href="https://bbs.freenode.net/">#freenode-bbs</a></li>
+                <li><a href="https://jobs.freenode.net/">#freenode-jobs</a></li>
+                <li><a href="#greeting-modal">Knowledge base</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>

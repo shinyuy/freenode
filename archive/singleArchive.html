@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/archive/singleArchive.css">
+    <title>freenode | Archive</title>
+</head>
+
+<body>
+    <div class="bg-img">
+        <div class="container">
+            <nav class="desktop-nav">
+                <div class="logo"><a href="/index.html">free<span class="green">node</span></a></div>
+                <div>
+                    <ul>
+                        <li>
+                            <a href="/index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="https://webchat.freenode.net/">Chat</a>
+                        </li>
+                        <li>
+                            <a href="#greeting-modal" href="https://freenode.net/kb/all">Knowledge</a>
+                        </li>
+                        <li>
+                            <a href="https://bbs.freenode.net/">Share</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="search_box">
+                    <img class="fas fa-search" src="/images/search.png" alt="Search" />
+                    <input type="text" placeholder="       Search">
+                </div>
+            </nav>
+
+            <!-- Mobile nav -->
+            <nav class="mobile-nav">
+                <div>
+                    <a href="#nav-modal"><img src="/images/nav.png" alt="Navigation icon" /></a>
+                    <p>free<span class="green">node</span></p>
+                </div>
+                <img src="/images/search.png" alt="Search" />
+            </nav>
+
+            <!-- Mobile nav -->
+            <div class="mobile-modal-nav-container" id="nav-modal">
+                <div class="mobile-modal-nav">
+                    <ul>
+                        <li><a href="/index.html">Home</a></li>
+                        <hr>
+                        <li><a href="https://webchat.freenode.net/">Chat</a></li>
+                        <hr>
+                        <!--
+                          <li>Knowledge base</li>
+                      -->
+                        <div class="accordionMenu">
+                            <input type="radio" name="trg1" id="acc1">
+                            <label for="acc1">Knowledge base</label>
+                            <div class="content">
+                                <ul class="inner">
+                                    <li><a href="/knowledge/certfp.html">CertFP</a></li>
+                                    <li><a href="/knowledge/channels.html">Channels</a></li>
+                                    <li><a href="/knowledge/sasl.html">Connecting with SASL</a></li>
+                                    <li><a href="/knowledge/findingchannels.html">Finding Channels</a></li>
+                                    <li><a href="/knowledge/resetpass.html">Resetting your Password</a></li>
+                                    <li><a href="/knowledge/channelmodes.html">Channel Modes</a></li>
+                                    <li><a href="/knowledge/chat.html">Connecting to freenode</a></li>
+                                    <li><a href="/knowledge//extbans.html">Extbans</a></li>
+                                    <li><a href="/knowledge/registration.html">Nickname Registration</a></li>
+                                    <li><a href="/knowledge/usermodes.html">User Modes</a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <hr>
+                        <li><a href="https://bbs.freenode.net/">Share</a></li>
+                        <hr>
+                    </ul>
+                </div>
+
+                <!-- Background, click to close -->
+                <a href="#" class="nav-modal-bg"></a>
+            </div>
+
+            <!-- Modal container -->
+            <div class="modal-container" id="greeting-modal">
+
+                <!-- Modal  -->
+                <div class="modal">
+                    <div>
+                        <ul>
+                            <li><a href="/knowledge/certfp.html">CertFP</a></li>
+                            <li><a href="/knowledge/channels.html">Channels</a></li>
+                            <li><a href="/knowledge/sasl.html">Connecting with SASL</a></li>
+                            <li><a href="/knowledge/findingchannels.html">Finding Channels</a></li>
+                            <li><a href="/knowledge/resetpass.html">Resetting your Password</a></li>
+                        </ul>
+                    </div>
+                    <div class="vl"></div>
+                    <div>
+                        <ul>
+                            <li><a href="/knowledge/channelmodes.html">Channel Modes</a></li>
+                            <li><a href="/knowledge/chat.html">Connecting to freenode</a></li>
+                            <li><a href="/knowledge//extbans.html">Extbans</a></li>
+                            <li><a href="/knowledge/registration.html">Nickname Registration</a></li>
+                            <li><a href="/knowledge/usermodes.html">User Modes</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Background, click to close -->
+                <a href="#" class="modal-bg"></a>
+            </div>
+
+
+            <section class="single-archive">
+                <h1>
+                    <span> Changes to ChanServ regarding cloaks </span><br /><span class="green">edk on
+                        2020-11-28</span>
+                </h1>
+
+                <p>
+
+                    freenode offers <a href="https://freenode.net">cloaks</a> to our users, which replace one's hostname or IP address in various places
+                    with a project affiliation or lack thereof. Many of you will be aware that cloaks on freenode <a href="https://freenode.net">are
+                    not offered as a security measure</a> and that various means are available to third parties to see
+                    through them.
+                </p>
+                <p>However, many users acquire cloaks for security/privacy reasons anyway, and we've taken the decision
+                    to close some of the more glaring holes in the protection they offer. Please do note that cloaks are
+                    still not recommended for hiding a user's IP address.
+                </p>
+                <p>We have deployed the following changes to ChanServ:
+                </p>
+                <ul>
+                    <li>
+                        <b>AKICK DEL</b> no longer removes bans against the host behind a cloak
+                    </li>
+                    <li><b>WHY</b> no longers considers host-based access</li>
+                    <li><b>UNQUIET</b> no longer unquiets nicks that aren't on the target channel</li>
+
+                </ul>
+                <p>
+                    Empirically, these are corner cases that don't often come into play when managing a channel.
+                    However, if you need assistance with something that these commands used to do, feel free—as
+                    always—to contact staff at any time.
+                </p>
+                <p>
+                    While bans against IP addresses continue to apply to cloaked users, we intend to revise this
+                    behaviour in the future due to its privacy implications.
+                </p>
+                <p>
+                    If you have any questions, please don't hesitate to ask either #freenode or any available member of
+                    staff.
+                </p>
+
+                <div>
+                    <img src="/images/arrowleft.png" alt="arrow left">
+                    <button>Blog Archive</button>
+                    <img src="/images/arrowright.png" alt="arrow right">
+                </div>
+
+            </section>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-top">
+            <p><a href="/index.html"><span class="dark-blue">free</span><span class="green">node</span></a></p>
+            <p>Quick Links</p>
+            <div class="connect">
+                <p>Connect with us</p>
+                <a href="https://twitter.com/freenodestaff"><img src="/images/twitter.png" alt="Twitter" /></a> 
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <ul>
+                <li><a href="/people/people.html">The people</a></li>
+                <li><a href="/policy/policy.html">The policies</a></li>
+                <li><a href="/acknowledgements/acknowledgements.html">Acknowledgements</a></li>
+                <li><a href="/archive/archive.html">News Archive / RSS / Atom</a></li>
+            </ul>
+            <ul>
+                <li><a href="https://webchat.freenode.net/">Webchat
+                    chat.freenode.net:6697 / non-SSL: 6667</a> </li>
+                <li><a href="https://freenode.live/">freenode #live</a></li>
+                <li><a href="https://bbs.freenode.net/">#freenode-bbs</a></li>
+                <li><a href="https://jobs.freenode.net/">#freenode-jobs</a></li>
+                <li><a href="#greeting-modal">Knowledge base</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>

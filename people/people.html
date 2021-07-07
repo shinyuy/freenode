@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/people/people.css">
+    <title>freenode | People</title>
+</head>
+
+<body>
+    <div class="bg-img">
+        <div class="container">
+            <nav class="desktop-nav">
+                <div class="logo"><a href="/index.html">free<span class="green">node</span></a></div>
+                <div>
+                    <ul>
+                        <li>
+                            <a href="/index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="https://webchat.freenode.net/">Chat</a>
+                        </li>
+                        <li>
+                            <a href="#greeting-modal" href="https://freenode.net/kb/all">Knowledge</a>
+                        </li>
+                        <li>
+                            <a href="https://bbs.freenode.net/">Share</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="search_box">
+                    <img class="fas fa-search" src="/images/search.png" alt="Search" />
+                    <input type="text" placeholder="       Search">
+                </div>
+            </nav>
+
+            <!-- Mobile nav -->
+            <nav class="mobile-nav">
+                <div>
+                    <a href="#nav-modal"><img src="/images/nav.png" alt="Navigation icon" /></a>
+                    <p>free<span class="green">node</span></p>
+                </div>
+                <img src="/images/search.png" alt="Search" />
+            </nav>
+
+            <!-- Mobile nav -->
+            <div class="mobile-modal-nav-container" id="nav-modal">
+                <div class="mobile-modal-nav">
+                    <ul>
+                        <li><a href="/index.html">Home</a></li>
+                        <hr>
+                        <li><a href="https://webchat.freenode.net/">Chat</a></li>
+                        <hr>
+                        <!--
+                          <li>Knowledge base</li>
+                      -->
+                        <div class="accordionMenu">
+                            <input type="radio" name="trg1" id="acc1">
+                            <label for="acc1">Knowledge base</label>
+                            <div class="content">
+                                <ul class="inner">
+                                    <li><a href="/knowledge/certfp.html">CertFP</a></li>
+                                    <li><a href="/knowledge/channels.html">Channels</a></li>
+                                    <li><a href="/knowledge/sasl.html">Connecting with SASL</a></li>
+                                    <li><a href="/knowledge/findingchannels.html">Finding Channels</a></li>
+                                    <li><a href="/knowledge/resetpass.html">Resetting your Password</a></li>
+                                    <li><a href="/knowledge/channelmodes.html">Channel Modes</a></li>
+                                    <li><a href="/knowledge/chat.html">Connecting to freenode</a></li>
+                                    <li><a href="/knowledge//extbans.html">Extbans</a></li>
+                                    <li><a href="/knowledge/registration.html">Nickname Registration</a></li>
+                                    <li><a href="/knowledge/usermodes.html">User Modes</a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <hr>
+                        <li><a href="https://bbs.freenode.net/">Share</a></li>
+                        <hr>
+                    </ul>
+                </div>
+
+                <!-- Background, click to close -->
+                <a href="#" class="nav-modal-bg"></a>
+            </div>
+
+            <!-- Modal container -->
+            <div class="modal-container" id="greeting-modal">
+
+                <!-- Modal  -->
+                <div class="modal">
+                    <div>
+                        <ul>
+                            <li><a href="/knowledge/certfp.html">CertFP</a></li>
+                            <li><a href="/knowledge/channels.html">Channels</a></li>
+                            <li><a href="/knowledge/sasl.html">Connecting with SASL</a></li>
+                            <li><a href="/knowledge/findingchannels.html">Finding Channels</a></li>
+                            <li><a href="/knowledge/resetpass.html">Resetting your Password</a></li>
+                        </ul>
+                    </div>
+                    <div class="vl"></div>
+                    <div>
+                        <ul>
+                            <li><a href="/knowledge/channelmodes.html">Channel Modes</a></li>
+                            <li><a href="/knowledge/chat.html">Connecting to freenode</a></li>
+                            <li><a href="/knowledge//extbans.html">Extbans</a></li>
+                            <li><a href="/knowledge/registration.html">Nickname Registration</a></li>
+                            <li><a href="/knowledge/usermodes.html">User Modes</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Background, click to close -->
+                <a href="#" class="modal-bg"></a>
+            </div>
+
+            <section class="people">
+                <h1>
+                    <span>THE </span><span class="green">PEOPLE</span>
+
+                </h1>
+                <p>
+                    The freenode project is run entirely by volunteers. All of the current volunteers came to the
+                    project through involvement with one or more of the projects that use freenode and have deep
+                    experience running IRC networks.
+                </p>
+                <p>
+                    The following people help to keep freenode running:
+                </p>
+                <h3>
+                    Leadership
+                </h3>
+                <ul>
+                    <li><b>rasengan</b> is the President</li>
+                    <li><b>v8</b> is the Network Director</li>
+                    <li><b>taw</b> is a Deputy Network Director</li>
+                    <li><b>tjr</b> is a Deputy Network Director</li>
+                </ul>
+
+
+                <h3>Senior Staff</h3>
+                <ul>
+                    <li><b>rails</b></li>
+                    <li><b>keitwo</b></li>
+                    <li><b>poison</b></li>
+                </ul>
+
+                <h3>Advisory</h3>
+                <ul>
+                    <li><b>Ragnar</b></li>
+                    <li><b>stevoo</b></li>
+                    <h3>Infrastructure</h3>
+                    <li><b>tjr</b> is Head of Infrastructure</li>
+                    <li><b>rails</b> is Deputy Head of Infrastructure</li>
+                    <li><b>keitwo</b> is an Infrastructure Manager</li>
+                    <li><b>poison</b> is an Infrastructure Manager</li>
+                </ul>
+
+                <h3>Community</h3>
+                <ul>
+                    <li><b>sorcerer</b> is the Head Community Coordinator</li>
+                    <li><b>Foxy</b> is the Deputy Head Community Coordinator</li>
+                </ul>
+
+                <h3>Community Volunteer Staff</h3>
+                <ul>
+                    <li><b>eth01</b> is a Deputy Head of Volunteers</li>
+                    <li><b>bagira</b> is a Deputy Head of Volunteers</li>
+                    <li><b>dbo</b></li>
+                    <li><b>jhill</b></li>
+                    <li><b>MillerBoss</b></li>
+                    <li><b>nikola</b></li>
+                    <li><b>proto\</b></li>
+                    <li><b>realwof</b></li>
+                    <li><b>Ritche</b></li>
+                    <li><b>Speakz</b></li>
+                    <li><b>stevoo</b></li>
+                    <li><b>Suntop</b></li>
+                    <li><b>y2k</b></li>
+                </ul>
+
+
+                <p>
+                    The project also benefits greatly from the ongoing support and enthusiasm from its volunteers, both
+                    official and unofficial, and is grateful for the time and efforts invested in the project by past
+                    and present volunteers.
+                </p>
+                <p>
+                    The freenode project keeps a keen eye out for individuals who may provide a good fit to the existing
+                    volunteer base and we periodically recruit existing participants who have made a strong positive
+                    impression and we believe would be a good fit on the staff team.
+                </p>
+                <p>If you are looking for freenode volunteers on the freenode network you can find us in #freenode where
+                    we are always happy to have a chat or you can use /stats p to find volunteers that are immediately
+                    available.
+                </p>
+            </section>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-top">
+            <p><a href="/index.html"><span class="dark-blue">free</span><span class="green">node</span></a></p>
+            <p>Quick Links</p>
+            <div class="connect">
+                <p>Connect with us</p>
+                <a href="https://twitter.com/freenodestaff"><img src="/images/twitter.png" alt="Twitter" /></a> 
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <ul>
+                <li><a href="/people/people.html">The people</a></li>
+                <li><a href="/policy/policy.html">The policies</a></li>
+                <li><a href="/acknowledgements/acknowledgements.html">Acknowledgements</a></li>
+                <li><a href="/archive/archive.html">News Archive / RSS / Atom</a></li>
+            </ul>
+            <ul>
+                <li><a href="https://webchat.freenode.net/">Webchat
+                    chat.freenode.net:6697 / non-SSL: 6667</a> </li>
+                <li><a href="https://freenode.live/">freenode #live</a></li>
+                <li><a href="https://bbs.freenode.net/">#freenode-bbs</a></li>
+                <li><a href="https://jobs.freenode.net/">#freenode-jobs</a></li>
+                <li><a href="#greeting-modal">Knowledge base</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>
