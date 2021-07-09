@@ -166,7 +166,7 @@ nav div ul li a:active {
   -moz-border-radius: 10px;
   border-radius: 10px;
   border: none;
-  background: url(/images/acknowledgements.png)right 30px top 30px no-repeat, url(/images/acknowledgements2.png) left 30px bottom 30px no-repeat;
+  background: url(/freenode/images/acknowledgements.png)right 30px top 30px no-repeat, url(/freenode/images/acknowledgements2.png) left 30px bottom 30px no-repeat;
   margin-bottom: 98px;
 }
 
@@ -544,7 +544,7 @@ footer a {
     -moz-border-radius: 10px;
     border-radius: 10px;
     border: none;
-    background: url(/images/acknowledgements.png) right 8px top 8px no-repeat, url(/images/acknowledgements2.png) left 8px bottom 8px no-repeat;
+    background: url(/freenode/images/acknowledgements.png) right 8px top 8px no-repeat, url(/freenode/images/acknowledgements2.png) left 8px bottom 8px no-repeat;
     margin-bottom: 20px;
   }
   .acknowledgements-bottom p {
