@@ -10,7 +10,7 @@
     background-image: url("/images/background-image.png"), linear-gradient(180deg, #06151D 0%, rgba(6, 21, 29, 0) 100%);
     */
   background-color: #06243A;
-  min-height: 1400px;
+  min-height: 1500px;
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
@@ -145,7 +145,7 @@ nav div ul li a:active {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  height: 1700px;
+  height: 1300px;
 }
 
 .certfp h1 {
