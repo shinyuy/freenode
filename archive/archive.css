@@ -10,10 +10,10 @@
     background-image:url("/images/background-image.png");
     background-image:url("/images/background-image.png"); /*, linear-gradient(180deg, #06151D 0%, rgba(6, 21, 29, 0) 100%);*/
   background-color: #06243A;
-  min-height: 1500px;
+  min-height: 1700px;
   /* Center and scale the image nicely */
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; 
   background-size: cover;
   /* Needed to position the navbar */
   position: relative;
@@ -145,7 +145,7 @@ nav div ul li a:active {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  height: 1700px;
+  height: 1500px;
 }
 
 .archive h1 {
