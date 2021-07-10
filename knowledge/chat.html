@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="knowledge.css">
+    <link rel="stylesheet" href="chat.css">
     <title>freenode | CertFP</title>
 </head>
 
@@ -68,7 +68,7 @@
                                     <li><a href="/freenode/knowledge/resetpass.html">Resetting your Password</a></li>
                                     <li><a href="/freenode/knowledge/channelmodes.html">Channel Modes</a></li>
                                     <li><a href="/freenode/knowledge/chat.html">Connecting to freenode</a></li>
-                                    <li><a href="/freenode/knowledge//extbans.html">Extbans</a></li>
+                                    <li><a href="/freenode/knowledge/extbans.html">Extbans</a></li>
                                     <li><a href="/freenode/knowledge/registration.html">Nickname Registration</a></li>
                                     <li><a href="/freenode/knowledge/usermodes.html">User Modes</a></li>
                                 </ul>
@@ -104,7 +104,7 @@
                         <ul>
                             <li><a href="/freenode/knowledge/channelmodes.html">Channel Modes</a></li>
                             <li><a href="/freenode/knowledge/chat.html">Connecting to freenode</a></li>
-                            <li><a href="/freenode/knowledge//extbans.html">Extbans</a></li>
+                            <li><a href="/freenode/knowledge/extbans.html">Extbans</a></li>
                             <li><a href="/freenode/knowledge/registration.html">Nickname Registration</a></li>
                             <li><a href="/freenode/knowledge/usermodes.html">User Modes</a></li>
                         </ul>
@@ -118,58 +118,74 @@
 
             <section class="certfp">
                 <h1>
-                    <span>Cert</span><span class="green">FP</span>
+                    <span>Connecting to free</span><span class="green">node</span>
 
                 </h1>
                 <p>
-                    As an alternative to password-based authentication, you can connect to freenode with a TLS
-                    certificate and have services recognise it automatically.
+                    The freenode network can be accessed via the <a href="https://webchat.freenode.net/">freenode webchat</a> or using an IRC client such as irssi, WeeChat, ERC, HexChat, Smuxi, Quassel or mIRC.
                 </p>
                 <p>
-                    For SASL EXTERNAL to work, you must connect over TLS.
+                    You can connect to freenode by pointing your IRC client at chat.freenode.net on ports 6665-6667 and 8000-8002 for plain-text connections, or ports 6697, 7000 and 7070 for TLS-encrypted connections.
                 </p>
+                <h3>Accessing freenode Via TLS</h3>
                 <p>
-                    <b>
-                        <p>Creating a self-signed certificate
-                    </b>
+                    freenode provides TLS client access on all servers, on ports 6697, 7000 and 7070. Users connecting over TLS will be given user mode +Z, and is using a secure connection will appear in WHOIS (a 671 numeric).
                 </p>
                 <p>
 
-                    In order to follow these instructions, you will need the openssl utility. If you are using Windows
-                    and do not have a copy, you might consider using Cygwin.
+                    In order to verify the server certificates on connection, some additional work may be required. First, ensure that your system has an up-to-date set of root CA certificates. On most linux distributions this will be in a package named something like ca-certificates. Many systems install these by default, but some (such as FreeBSD) do not. For FreeBSD, the package is named ca_root_nss, which will install the appropriate root certificates in /usr/local/share/certs/ca-root-nss.crt.
                 </p>
                 <p>
-                    You can generate a certificate with the following command: </p>
-               
+                    Certificate verification will generally only work when connecting to freenode.net. If your client thinks the server's certificate is invalid, make sure you are connecting to chat.freenode.net rather than any other name that leads to freenode.</p>
+               <p>For most clients this should be sufficient. If not, you can download the root certificate from <a href="https://letsencrypt.org/certificates/">LetsEncrypt.</a></p>
+
+               <p>
+                Client TLS certificates are also supported, and may be used for identification to services. See this kb article. If you have connected with a client certificate, has client certificate fingerprint <i>f1ecf46714198533cda14cccc76e5d7114be4195</i> (showing your certificate's SHA1 fingerprint in place of f1ecf46...) will appear in WHOIS (a 276 numeric).
+               </p>
+
+               <h3>Accessing freenode Via Tor</h3>
+               <p>freenode is also reachable via Tor, bound to some restrictions. You can't directly connect to chat.freenode.net via Tor; use the following hidden service as the server address instead:</p>
+    
+
                 <div class="command">
                     <div>
-                        <span>< &nbsp;</span> <p>openssl req -x509 -new -newkey rsa:4096 -sha256 -days 1096 -nodes -out f</p> <span>&nbsp; ></span>
+                        <span>< &nbsp;</span> <p>ajnvpgl6prmkb7yktvue6im5wiedlz2w32uhcwaamdiecdrfpwwgnlqd.onion</p> <span>&nbsp; ></span>
                     </div>
                 </div>
 
                 <p>
-                    You will be prompted for various pieces of information about the certificate. The contents do not
-                    matter for our purposes, but openssl needs at least one of them to be non-empty. This certificate
-                    will last about 3 years, so consider setting a calendar reminder.
+                    The hidden service requires SASL authentication. In addition, due to the abuse that led Tor access to be disabled in the past, we have unfortunately had to add another couple of restrictions:
+             </p>
+             <ul>
+                 <li>You must log in using SASL EXTERNAL or ECDSA-NIST256P-CHALLENGE (more below)</li>
+                 <li>If you log out while connected via Tor, you will not be able to log in without reconnecting.</li>
+             </ul>
+
+             <p>If you haven't set up the requisite SASL authentication, we recommend SASL EXTERNAL. You'll need to generate a client certificate and add that to your NickServ account. This is documented <a href="/freenode/knowledge/certfp.html">in our knowledge base.</a> </p>
+             
+             <p>Connecting using SASL EXTERNAL requires that you connect using TLS encryption.</p>
+                  
                 <p>
-                    The <b>.pem</b> file will have the same access to your NickServ account as your password does, so take
-                    appropriate care in securing it.
+                    You'll then want to tell your client to try the EXTERNAL mechanism. We lack comprehensive documentation for this, but it's a feature in most modern clients, so please check their docs for instructions for now.
                 </p>
-                <p>
-                    <b>
-                        <p>Inspecting your certificate
-                    </b>
-                </p>
+                <h3>Verifying Tor TLS connections</h3>
                 <p>
 
-                    The expiration date can be checked with the following command: </p>
+                    A Tor hidden service name securely identifies the service you are connecting to. Verifying the TLS server certificate is strickly-speaking unnecessary while using the hidden service. Nonetheless the following methods can be used to verify the hidden service's TLS server certificate.
                 </p>
+                <p>The best way to ensure the TLS server-side certificate successfully validates is to add the following fragment to your torrc configuration file and configure your client to connect to zettel.freenode.net via Tor. The TLS server certificate used by the hidden service will validate using this hostname.</p>
                 <div class="command">
                     <div>
-                        <span><&nbsp; </span> <p>openssl x509 -in freenode.pem -noout -enddate</p><span>&nbsp; ></span>
+                        <span>< &nbsp;&nbsp; </span> <p># torrc snippet:<br/> MapAddress zettel.freenode.net ajnvpgl6prmkb7yktvue6im5wiedlz2w32uhcwaamdiecdrfpwwgnlqd.onion</p><span>&nbsp;&nbsp; ></span>
                     </div>
                 </div>
-
+                <p>Older clients that don't support SOCKS4a or later will need to use MapAddress with an IP address, and the certificate will not validate successfully. In this case validation will need to be disabled.</p>
+                <p>Note that the hidden service's certificate changes periodically as it is updated. This means that the certificate fingerprint can not be reliably pinned. A few clients support public key pinning, however. For these clients the following public key fingerprint can be pinned:</p>
+                <div class="command">
+                    <div>
+                        <span><&nbsp;&nbsp; </span> <p># sha256 public key fingerprint<br/> E0:1B:31:80:56:D9:78:C4:2B:2D:3F:B2:DB:81:AB:03:15:59:BF:04:7E:31:E8:60:5F:98:07:A1:BB:8F:A3:0D</p><span>&nbsp;&nbsp; ></span>
+                    </div>
+                </div>
             </section>
 
         </div>

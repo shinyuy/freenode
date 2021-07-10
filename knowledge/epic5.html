@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="findingchannels.css">
-    <title>freenode | CertFP</title>
+    <link rel="stylesheet" href="knowledge.css">
+    <title>freenode | Chatzilla</title>
 </head>
 
 <body>
@@ -118,57 +118,30 @@
 
             <section class="certfp">
                 <h1>
-                    <span>Finding</span><span class="green">Channels</span>
+                    <span>Configuring SASL</span><span class="green">for Epic5
+                    </span>
 
                 </h1>
-                <h3>Finding Channels on freenode</h3>
                 <p>
-                    With many thousands of channels on freenode and more being registered all the time, a good way to
-                    search for channels of interest to you is useful. </p>
-                <p>
-                    You can use ChanServ's LIST command for exactly that purpose.
+                    EPIC5 has the sasl_auth script built-in. Mikhail contributed this explanation of how to use it.
                 </p>
-                <p>
-                    At the most simple, you can use /msg ChanServ LIST *searchterm* to find channels whose name contains
-                    the term in question - for instance, /msg ChanServ LIST *linux*.
-                </p>
-                <p>
-                    For full details on how to use ChanServ's LIST command, /msg ChanServ HELP LIST will send you back
-                    the following help text: </p>
-
-
-                <div class="code">
-                    <p>Syntax: LIST pattern [SUSPENDED] [NOEXPIRE]</p>
-                    <p>Lists all registered channels matching the given pattern.
-                        Channels with the PRIVATE option set will only be
-                        displayed to Services Operators with the proper access.
-                        Channels with the NOEXPIRE option set will have
-                        a ! prefixed to the channel for Services Operators to see.</p>
-                    <p>Note that a preceding '#' specifies a range, channel names
-                        are to be written without '#'.</p>
-                    <p>
-                        If the SUSPENDED or NOEXPIRE options are given, only channels
-                        which, respectively, are SUSPENDED or have the NOEXPIRE
-                        flag set will be displayed. If multiple options are given,
-                        all channels matching at least one option will be displayed.
-                        Note that these options are limited to Services Operators.
-                    </p>
-                    <p>Examples:<br /></p>
-                    <p> LIST *anope*<br />
-                        Lists all registered channels with anope in their<br />
-                        names (case insensitive).<br /></p>
-                    <p> LIST * NOEXPIRE<br />
-                        Lists all registered channels which have been set to not expire.<br />
-                    </p>
-                    <p> LIST #51-100<br />
-                        Lists all registered channels within the given range (51-100).<br />
-                    </p>
-                    <p>Regex matches are also supported using the regex/pcre engine.
-                        Enclose your pattern in // if this is desired.</p>
-                </div>
-                <p>An alternative method to search is to do so via the web, using <a
-                        href="https://netsplit.de/channels/?net=freenode"> netsplit.de.</a></p>
-
+                <p>Open your EPIC5 configuration file, ~/.epicrc or ~/.ircrc, in your preferred editor. Add the
+                    following lines:</p>
+                <ul>
+                    <li>load builtins
+                    </li>
+                    <li>
+                        load sasl_auth
+                    </li>
+                    <li>sasl_auth *.freenode.net plain username password</li>
+                </ul>
+                <p>Replace username with your primary nick. The password may be replaced with your password or omitted,
+                    in which case EPIC5 will prompt for the password when it connects. You may change *.freenode.net to
+                    something more specific if desired, but the * means SASL authentication will be attempted for any
+                    freenode.net server. Only plain is supported as the authentication mechanism. You may want to use
+                    SSL to protect your password.</p>
+                <p>If everything has been configured correctly, the next time you connect you should see the message:
+                    SASL authentication successful</p>
             </section>
 
         </div>

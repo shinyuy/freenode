@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="knowledge.css">
-    <title>freenode | CertFP</title>
+    <link rel="stylesheet" href="extbans.css">
+    <title>freenode | Extbans</title>
 </head>
 
 <body>
@@ -68,7 +68,7 @@
                                     <li><a href="/freenode/knowledge/resetpass.html">Resetting your Password</a></li>
                                     <li><a href="/freenode/knowledge/channelmodes.html">Channel Modes</a></li>
                                     <li><a href="/freenode/knowledge/chat.html">Connecting to freenode</a></li>
-                                    <li><a href="/freenode/knowledge//extbans.html">Extbans</a></li>
+                                    <li><a href="/freenode/knowledge/extbans.html">Extbans</a></li>
                                     <li><a href="/freenode/knowledge/registration.html">Nickname Registration</a></li>
                                     <li><a href="/freenode/knowledge/usermodes.html">User Modes</a></li>
                                 </ul>
@@ -104,7 +104,7 @@
                         <ul>
                             <li><a href="/freenode/knowledge/channelmodes.html">Channel Modes</a></li>
                             <li><a href="/freenode/knowledge/chat.html">Connecting to freenode</a></li>
-                            <li><a href="/freenode/knowledge//extbans.html">Extbans</a></li>
+                            <li><a href="/freenode/knowledge/extbans.html">Extbans</a></li>
                             <li><a href="/freenode/knowledge/registration.html">Nickname Registration</a></li>
                             <li><a href="/freenode/knowledge/usermodes.html">User Modes</a></li>
                         </ul>
@@ -118,57 +118,108 @@
 
             <section class="certfp">
                 <h1>
-                    <span>Cert</span><span class="green">FP</span>
+                    <span>Extbans</span><span class="green">bans</span>
 
                 </h1>
                 <p>
-                    As an alternative to password-based authentication, you can connect to freenode with a TLS
-                    certificate and have services recognise it automatically.
+                    Bans, quiets and invite and ban exemptions conventionally accept the format nick!user@host. On freenode another syntax, known as "extban", is accepted. These entries have the general format of X:data.
                 </p>
+                <h3>Matching extbans</h3>
                 <p>
-                    For SASL EXTERNAL to work, you must connect over TLS.
+                    These extbans match users in additional ways, for example, by account name.
                 </p>
-                <p>
-                    <b>
-                        <p>Creating a self-signed certificate
-                    </b>
-                </p>
-                <p>
 
-                    In order to follow these instructions, you will need the openssl utility. If you are using Windows
-                    and do not have a copy, you might consider using Cygwin.
-                </p>
-                <p>
-                    You can generate a certificate with the following command: </p>
-               
-                <div class="command">
-                    <div>
-                        <span>< &nbsp;</span> <p>openssl req -x509 -new -newkey rsa:4096 -sha256 -days 1096 -nodes -out f</p> <span>&nbsp; ></span>
-                    </div>
-                </div>
+                <table>
+                    <tr>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>a:</td>
+                        <td>Matches a user in the format of nick!user@host+realname.</td>
+                    </tr>
+                    <tr>
+                        <td>j:</td>
+                        <td>Matches anyone in the given channel. Does not support wildcards.</td>
+                    </tr>
+                    <tr>
+                        <td>n:</td>
+                        <td>Matches users in a matching connect class.</td>
+                    </tr>
+                    <tr>
+                        <td>r:</td>
+                        <td>Matches users with a given realname.</td>
+                    </tr>
+                    <tr>
+                        <td>s:</td>
+                        <td>Matches users on a matching server.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>z:</td>
+                        <td>Matches having the given TLS certificate fingerprint.</td>
+                    </tr>
+                    <tr>
+                        <td>R:</td>
+                        <td>Matches users logged into a matching account.</td>
+                    </tr>
+                    <tr>
+                        <td>U:</td>
+                        <td>Matches unregistered users matching the given traditional banmask.</td>
+                    </tr>
+                </table>
+                <h3>
+                    Acting extbans
+                </h3>
+                <p>These extbans apply special restrictions to users matching the banmask.</p>
 
-                <p>
-                    You will be prompted for various pieces of information about the certificate. The contents do not
-                    matter for our purposes, but openssl needs at least one of them to be non-empty. This certificate
-                    will last about 3 years, so consider setting a calendar reminder.
-                <p>
-                    The <b>.pem</b> file will have the same access to your NickServ account as your password does, so take
-                    appropriate care in securing it.
-                </p>
-                <p>
-                    <b>
-                        <p>Inspecting your certificate
-                    </b>
-                </p>
-                <p>
-
-                    The expiration date can be checked with the following command: </p>
-                </p>
-                <div class="command">
-                    <div>
-                        <span><&nbsp; </span> <p>openssl x509 -in freenode.pem -noout -enddate</p><span>&nbsp; ></span>
-                    </div>
-                </div>
+                <table>
+                    <tr>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>c:</td>
+                        <td>Blocks any messages that contain formatting codes from matching users</td>
+                    </tr>
+                    <tr>
+                        <td>m:</td>
+                        <td>Blocks messages from matching users, while still allowing them to be on the channel (mute)</td>
+                    </tr>
+                    <tr>
+                        <td>p:</td>
+                        <td>Blocks part messages from matching users</td>
+                    </tr>
+                    <tr>
+                        <td>A:</td>
+                        <td>Blocks invites by matching users even when channel mode +A is set</td>
+                    </tr>
+                    <tr>
+                        <td>B:</td>
+                        <td>Blocks all-caps messages from matching users
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>C:</td>
+                        <td>Blocks CTCPs from matching users</td>
+                    </tr>
+                    <tr>
+                        <td>N:</td>
+                        <td>Blocks nick changes from matching users</td>
+                    </tr>
+                    <tr>
+                        <td>Q:</td>
+                        <td>Blocks kicks by matching users</td>
+                    </tr>
+                    <tr>
+                        <td>S:</td>
+                        <td>Removes formatting/color codes from matching users (an alternative to c:)</td>
+                    </tr>
+                    <tr>
+                        <td>T:</td>
+                        <td>Blocks notices from matching users</td>
+                    </tr>
+                </table>
 
             </section>
 

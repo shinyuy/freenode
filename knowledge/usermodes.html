@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="knowledge.css">
+    <link rel="stylesheet" href="usermodes.css">
     <title>freenode | CertFP</title>
 </head>
 
@@ -68,7 +68,7 @@
                                     <li><a href="/freenode/knowledge/resetpass.html">Resetting your Password</a></li>
                                     <li><a href="/freenode/knowledge/channelmodes.html">Channel Modes</a></li>
                                     <li><a href="/freenode/knowledge/chat.html">Connecting to freenode</a></li>
-                                    <li><a href="/freenode/knowledge//extbans.html">Extbans</a></li>
+                                    <li><a href="/freenode/knowledge/extbans.html">Extbans</a></li>
                                     <li><a href="/freenode/knowledge/registration.html">Nickname Registration</a></li>
                                     <li><a href="/freenode/knowledge/usermodes.html">User Modes</a></li>
                                 </ul>
@@ -104,7 +104,7 @@
                         <ul>
                             <li><a href="/freenode/knowledge/channelmodes.html">Channel Modes</a></li>
                             <li><a href="/freenode/knowledge/chat.html">Connecting to freenode</a></li>
-                            <li><a href="/freenode/knowledge//extbans.html">Extbans</a></li>
+                            <li><a href="/freenode/knowledge/extbans.html">Extbans</a></li>
                             <li><a href="/freenode/knowledge/registration.html">Nickname Registration</a></li>
                             <li><a href="/freenode/knowledge/usermodes.html">User Modes</a></li>
                         </ul>
@@ -118,57 +118,98 @@
 
             <section class="certfp">
                 <h1>
-                    <span>Cert</span><span class="green">FP</span>
+                    <span>User </span><span class="green">Modes</span>
 
                 </h1>
                 <p>
-                    As an alternative to password-based authentication, you can connect to freenode with a TLS
-                    certificate and have services recognise it automatically.
+                    Various modes can be set on users. Some of them can be set by the users, others are set by the network. You can list your current user modes with the /mode yourname command.
                 </p>
                 <p>
-                    For SASL EXTERNAL to work, you must connect over TLS.
+                    For those that can be set by users, /mode yourname +mode will work.
                 </p>
                 <p>
-                    <b>
-                        <p>Creating a self-signed certificate
-                    </b>
+                    Keep in mind that all user modes are per session, so you have to set them again every time you connect. Note that most clients can automate this for you
                 </p>
+                <h3>Available user modes</h3>
+                <table>
+                    <tr>
+                        <th>Mode (name)</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>c:</td>
+                        <td>Blocks private messages from users who do not share a common channel with you and will not notify you that someone is attempting to message you.</td>
+                    </tr>
+                    <tr>
+                        <td>d
+                            (deaf)</td>
+                        <td>Makes you not recieve any messages or notices.</td>
+                    </tr>
+                    <tr>
+                        <td>g
+                            (caller-id)</td>
+                        <td>Ignores private messages from unknown users, instead informing you someone is attempting to message you. You can choose to receive messages with the /accept command. Messaging a user automatically accepts them. Messages from unidentified users will still be blocked by +R.</td>
+                    </tr>
+                    <tr>
+                        <td>i
+                            (invisible)</td>
+                        <td>Hides you from global WHO by normal users.</td>
+                    </tr>
+                    <tr>
+                        <td>x
+                            (host cloaking)</td>
+                        <td>Replaces your hostname with a hashed version, hiding it from others.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>z
+                            (secure messages only)</td>
+                        <td>Only allow private messages from users connecting via TLS.</td>
+                    </tr>
+                    <tr>
+                        <td>B
+                            (bot mode)</td>
+                        <td>Marks you as a bot.</td>
+                    </tr>
+                    <tr>
+                        <td>D
+                            (privdeaf)</td>
+                        <td>Prevents you from receiving private messages.</td>
+                    </tr>
+                    <tr>
+                        <td>I
+                            (hidden whois)</td>
+                        <td>Hides your WHOIS channel list from non-staff.</td>
+                    </tr>
+                    <tr>
+                        <td>L
+                            (disable forwarding)</td>
+                        <td>Prevents channel forwards from affecting you. If a channel's modes prevent you from joining, you will receive the relevant error message regardless of any forwards.</td>
+                    </tr>
+                    <tr>
+                        <td>R
+                            (block unidentified)</td>
+                        <td>Ignores private messages from users who are not identified with services.</td>
+                    </tr>
+                    <tr>
+                        <td>S
+                            (strip color)</td>
+                        <td>Strips color/formatting codes out of private messages.</td>
+                    </tr>
+                    <tr>
+                        <td>w
+                            (see wallops)</td>
+                        <td>Subscribes you to /wallops messages from freenode staff. Used infrequently to highlight interesting announcements from the FOSS community. You will receive important network announcements irrespective of this setting.</td>
+                    </tr>
+                    <tr>
+                        <td>Z
+                            (connected securely)</td>
+                        <td>Set automatically by the network when you connect via SSL/TLS.</td>
+                    </tr>
+                </table>
                 <p>
-
-                    In order to follow these instructions, you will need the openssl utility. If you are using Windows
-                    and do not have a copy, you might consider using Cygwin.
+                    By default, user mode +Z (connected securely using TLS) is set only if you are using a secure connection, and it cannot be unset during the session. User mode +i (invisible) is also set by default, and can be unset. Other user modes can be set, but are disabled by default.
                 </p>
-                <p>
-                    You can generate a certificate with the following command: </p>
-               
-                <div class="command">
-                    <div>
-                        <span>< &nbsp;</span> <p>openssl req -x509 -new -newkey rsa:4096 -sha256 -days 1096 -nodes -out f</p> <span>&nbsp; ></span>
-                    </div>
-                </div>
-
-                <p>
-                    You will be prompted for various pieces of information about the certificate. The contents do not
-                    matter for our purposes, but openssl needs at least one of them to be non-empty. This certificate
-                    will last about 3 years, so consider setting a calendar reminder.
-                <p>
-                    The <b>.pem</b> file will have the same access to your NickServ account as your password does, so take
-                    appropriate care in securing it.
-                </p>
-                <p>
-                    <b>
-                        <p>Inspecting your certificate
-                    </b>
-                </p>
-                <p>
-
-                    The expiration date can be checked with the following command: </p>
-                </p>
-                <div class="command">
-                    <div>
-                        <span><&nbsp; </span> <p>openssl x509 -in freenode.pem -noout -enddate</p><span>&nbsp; ></span>
-                    </div>
-                </div>
 
             </section>
 

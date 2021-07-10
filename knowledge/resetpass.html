@@ -68,7 +68,7 @@
                                     <li><a href="/freenode/knowledge/resetpass.html">Resetting your Password</a></li>
                                     <li><a href="/freenode/knowledge/channelmodes.html">Channel Modes</a></li>
                                     <li><a href="/freenode/knowledge/chat.html">Connecting to freenode</a></li>
-                                    <li><a href="/freenode/knowledge//extbans.html">Extbans</a></li>
+                                    <li><a href="/freenode/knowledge/extbans.html">Extbans</a></li>
                                     <li><a href="/freenode/knowledge/registration.html">Nickname Registration</a></li>
                                     <li><a href="/freenode/knowledge/usermodes.html">User Modes</a></li>
                                 </ul>
@@ -104,7 +104,7 @@
                         <ul>
                             <li><a href="/freenode/knowledge/channelmodes.html">Channel Modes</a></li>
                             <li><a href="/freenode/knowledge/chat.html">Connecting to freenode</a></li>
-                            <li><a href="/freenode/knowledge//extbans.html">Extbans</a></li>
+                            <li><a href="/freenode/knowledge/extbans.html">Extbans</a></li>
                             <li><a href="/freenode/knowledge/registration.html">Nickname Registration</a></li>
                             <li><a href="/freenode/knowledge/usermodes.html">User Modes</a></li>
                         </ul>
@@ -118,57 +118,44 @@
 
             <section class="certfp">
                 <h1>
-                    <span>Cert</span><span class="green">FP</span>
+                    <span>Resetting your</span><span class="green">Password</span>
 
                 </h1>
                 <p>
-                    As an alternative to password-based authentication, you can connect to freenode with a TLS
-                    certificate and have services recognise it automatically.
-                </p>
-                <p>
-                    For SASL EXTERNAL to work, you must connect over TLS.
-                </p>
-                <p>
-                    <b>
-                        <p>Creating a self-signed certificate
-                    </b>
-                </p>
-                <p>
-
-                    In order to follow these instructions, you will need the openssl utility. If you are using Windows
-                    and do not have a copy, you might consider using Cygwin.
-                </p>
-                <p>
-                    You can generate a certificate with the following command: </p>
-               
-                <div class="command">
-                    <div>
-                        <span>< &nbsp;</span> <p>openssl req -x509 -new -newkey rsa:4096 -sha256 -days 1096 -nodes -out f</p> <span>&nbsp; ></span>
-                    </div>
-                </div>
-
-                <p>
-                    You will be prompted for various pieces of information about the certificate. The contents do not
-                    matter for our purposes, but openssl needs at least one of them to be non-empty. This certificate
-                    will last about 3 years, so consider setting a calendar reminder.
-                <p>
-                    The <b>.pem</b> file will have the same access to your NickServ account as your password does, so take
-                    appropriate care in securing it.
-                </p>
-                <p>
-                    <b>
-                        <p>Inspecting your certificate
-                    </b>
-                </p>
-                <p>
-
-                    The expiration date can be checked with the following command: </p>
+                    If you have forgotten the password for your NickServ account and are unable to log in to it, you can
+                    send a password reset mail to the email address on your account with:
                 </p>
                 <div class="command">
                     <div>
-                        <span><&nbsp; </span> <p>openssl x509 -in freenode.pem -noout -enddate</p><span>&nbsp; ></span>
+                        <span>
+                            < &nbsp;</span>
+                                <p>/msg NickServ RESETPASS youraccountnamehere youremailhere</p> <span>&nbsp; ></span>
                     </div>
                 </div>
+                <p>
+                    You should receive an email containing a command with a password reset key, which you can use on IRC
+                    to reset your password.
+                </p>
+                <p>If you do not receive the email, please check your spam folders etc.</p>
+                <p>If you already have an outstanding password reset mail, you cannot send another, but you can contact
+                    freenode staff in #freenode for assistance.</p>
+
+                <p>
+                    If you are logged in to your account already and need to change its password, you should instead use
+                    the following command:
+                </p>
+                <div class="command">
+                    <div>
+                        <span>
+                            < &nbsp;</span>
+                                <p>/msg NickServ SET PASSWORD newpasswordhere</p> <span>&nbsp; ></span>
+                    </div>
+                </div>
+                <p>
+
+                    If your account is compromised and you are unable to change or reset the password, please contact
+                    freenode staff in #freenode as soon as possible for assistance.
+                </p>
 
             </section>
 
@@ -181,7 +168,7 @@
             <p>Quick Links</p>
             <div class="connect">
                 <p>Connect with us</p>
-                <a href="https://twitter.com/freenodestaff"><img src="/freenode/images/twitter.png" alt="Twitter" /></a> 
+                <a href="https://twitter.com/freenodestaff"><img src="/freenode/images/twitter.png" alt="Twitter" /></a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -193,7 +180,7 @@
             </ul>
             <ul>
                 <li><a href="https://webchat.freenode.net/">Webchat
-                    chat.freenode.net:6697 / non-SSL: 6667</a> </li>
+                        chat.freenode.net:6697 / non-SSL: 6667</a> </li>
                 <li><a href="https://freenode.live/">freenode #live</a></li>
                 <li><a href="https://bbs.freenode.net/">#freenode-bbs</a></li>
                 <li><a href="https://jobs.freenode.net/">#freenode-jobs</a></li>

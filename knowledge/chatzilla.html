@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="findingchannels.css">
-    <title>freenode | CertFP</title>
+    <link rel="stylesheet" href="knowledge.css">
+    <title>freenode | Chatzilla</title>
 </head>
 
 <body>
@@ -118,57 +118,24 @@
 
             <section class="certfp">
                 <h1>
-                    <span>Finding</span><span class="green">Channels</span>
+                    <span>Configuring SASL</span><span class="green">for Chatzilla
+                    </span>
 
                 </h1>
-                <h3>Finding Channels on freenode</h3>
                 <p>
-                    With many thousands of channels on freenode and more being registered all the time, a good way to
-                    search for channels of interest to you is useful. </p>
-                <p>
-                    You can use ChanServ's LIST command for exactly that purpose.
+                    This script is by Gryllida, for the ChatZilla <a href="https://addons.mozilla.org/en-US/firefox/addon/16/">add-on</a>   to Firefox.
                 </p>
-                <p>
-                    At the most simple, you can use /msg ChanServ LIST *searchterm* to find channels whose name contains
-                    the term in question - for instance, /msg ChanServ LIST *linux*.
-                </p>
-                <p>
-                    For full details on how to use ChanServ's LIST command, /msg ChanServ HELP LIST will send you back
-                    the following help text: </p>
-
-
-                <div class="code">
-                    <p>Syntax: LIST pattern [SUSPENDED] [NOEXPIRE]</p>
-                    <p>Lists all registered channels matching the given pattern.
-                        Channels with the PRIVATE option set will only be
-                        displayed to Services Operators with the proper access.
-                        Channels with the NOEXPIRE option set will have
-                        a ! prefixed to the channel for Services Operators to see.</p>
-                    <p>Note that a preceding '#' specifies a range, channel names
-                        are to be written without '#'.</p>
-                    <p>
-                        If the SUSPENDED or NOEXPIRE options are given, only channels
-                        which, respectively, are SUSPENDED or have the NOEXPIRE
-                        flag set will be displayed. If multiple options are given,
-                        all channels matching at least one option will be displayed.
-                        Note that these options are limited to Services Operators.
-                    </p>
-                    <p>Examples:<br /></p>
-                    <p> LIST *anope*<br />
-                        Lists all registered channels with anope in their<br />
-                        names (case insensitive).<br /></p>
-                    <p> LIST * NOEXPIRE<br />
-                        Lists all registered channels which have been set to not expire.<br />
-                    </p>
-                    <p> LIST #51-100<br />
-                        Lists all registered channels within the given range (51-100).<br />
-                    </p>
-                    <p>Regex matches are also supported using the regex/pcre engine.
-                        Enclose your pattern in // if this is desired.</p>
-                </div>
-                <p>An alternative method to search is to do so via the web, using <a
-                        href="https://netsplit.de/channels/?net=freenode"> netsplit.de.</a></p>
-
+               <ol>
+                   <li>Install <a href="https://freenode.net/static/files/cz_sasl.js">the cz_sasl</a> script as you would any other script, following the <a href="http://chatzilla.hacksrus.com/faq/#install-script">instructions here</a>  
+                </li>
+                <li>
+                    Enter /plugin-pref cz_sasl
+                </li>
+                <li>Enter /plugin-pref cz_sasl sasl.username YOUR_USERNAME replacing YOUR_USERNAME with your registered nickname</li>
+                <li>Enter /plugin-pref cz_sasl sasl.password YOUR_PASSWORD replacing YOUR_PASSWORD with your NickServ password</li>
+                <li>If you want to continue connecting when SASL authentication fails, enter /plugin-pref cz_sasl sasl.proceed_on_fail true</li>
+               </ol>
+               <p>If everything has been configured correctly, the next time you connect you should see the message SASL authentication successful.</p>
             </section>
 
         </div>
@@ -180,7 +147,7 @@
             <p>Quick Links</p>
             <div class="connect">
                 <p>Connect with us</p>
-                <a href="https://twitter.com/freenodestaff"><img src="/freenode/images/twitter.png" alt="Twitter" /></a>
+                <a href="https://twitter.com/freenodestaff"><img src="/freenode/images/twitter.png" alt="Twitter" /></a> 
             </div>
         </div>
         <div class="footer-bottom">
@@ -192,7 +159,7 @@
             </ul>
             <ul>
                 <li><a href="https://webchat.freenode.net/">Webchat
-                        chat.freenode.net:6697 / non-SSL: 6667</a> </li>
+                    chat.freenode.net:6697 / non-SSL: 6667</a> </li>
                 <li><a href="https://freenode.live/">freenode #live</a></li>
                 <li><a href="https://bbs.freenode.net/">#freenode-bbs</a></li>
                 <li><a href="https://jobs.freenode.net/">#freenode-jobs</a></li>
