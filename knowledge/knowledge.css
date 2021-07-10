@@ -550,6 +550,10 @@ footer a {
     margin-bottom: 30px;
   }
   
+  .certfp h3 {
+    font-size: 25px;
+}
+  
   .certfp p, .certfp li {
     font-size: 18px;
     line-height: 25px;
