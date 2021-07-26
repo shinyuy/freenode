@@ -354,9 +354,9 @@ footer a {
 .mobile-modal-nav {
   z-index: 1;
   background-color: white;
-  width: 70%;
+  width: 90%;
   height: 100%;
-  max-width: 80vw;
+  max-width: 90vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -494,7 +494,7 @@ footer a {
 
 @media screen and (max-width: 600px) {
   .bg-img {
-    min-height: 1500px;
+    min-height: 1700px;
   }
   .search_box {
     width: 95%;
@@ -528,7 +528,7 @@ footer a {
   }
   .acknowledgements {
     padding: 0 25px;
-    min-height: 600px;
+    min-height: 700px;
   }
   .acknowledgements h1 {
     font-size: 30px;
@@ -560,7 +560,7 @@ footer a {
   }
   footer {
     padding: 12px 25px;
-    height: 181px;
+    height: 250px;
   }
   .connect img {
     width: 30px;

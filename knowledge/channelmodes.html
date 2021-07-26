@@ -140,23 +140,19 @@
                         <th>Description</th>
                     </tr>
                     <tr>
-                        <td>v
-                            (voice)</td>
+                        <td>v (voice)</td>
                         <td>Gives voice to a user and allows them to speak over +m</td>
                     </tr>
                     <tr>
-                        <td>h
-                            (halfop)</td>
+                        <td>h (halfop)</td>
                         <td>Gives channel halfop status to a user</td>
                     </tr>
                     <tr>
-                        <td>o
-                            (op)</td>
+                        <td>o (op)</td>
                         <td>Gives channel operator status to a user</td>
                     </tr>
                     <tr>
-                        <td>b
-                            (channel ban)</td>
+                        <td>b (channel ban)</td>
                         <td>Prevent users from joining or speaking. Sending /mode #channel +b alone will return the
                             current ban list. While on the channel, banned users will be unable to send to the channel
                             or change nick.
@@ -170,32 +166,26 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>i
-                            (invite only)</td>
-                        <td>Users are unable to join invite-only channels unless they are invited or match a +I entry.
-                        </td>
+                        <td>i (invite only)</td>
+                        <td>Users are unable to join invite-only channels unless they are invited or match a +I entry.</td>
                     </tr>
                     <tr>
-                        <td>I
-                            (invite exemption)</td>
+                        <td>I (invite exemption)</td>
                         <td>Takes a ban parameter. <a href="/freenode/knowledge/extbans.html">Extbans</a> are supported
                             and common, e.g. for setting an exemption for a specific registered user. Matching clients
                             do not need to be invited to join the channel when it is invite-only (+i). Only channel
                             operators can see +I changes or see the list with /mode #channel +I.</td>
                     </tr>
                     <tr>
-                        <td>c
-                            (color block)</td>
+                        <td>c (color block)</td>
                         <td>Blocks messages that contain color/formatting codes.</td>
                     </tr>
                     <tr>
-                        <td>C
-                            (block CTCPs)</td>
+                        <td>C (block CTCPs)</td>
                         <td>Blocks CTCP commands (other than /me actions).</td>
                     </tr>
                     <tr>
-                        <td>e
-                            (ban exemption)</td>
+                        <td>e (ban exemption)</td>
                         <td>Takes one parameter, just like ban (above). Wildcards and <a
                                 href="/freenode/knowledge/extbans.html">extbans</a> can be used, like ban. Ban exemption
                             matches override +b and +q bans for all clients it matches, allowing the exempted user to
@@ -206,122 +196,101 @@
                             and JohnDoe to join.</td>
                     </tr>
                     <tr>
-                        <td>d
-                            (delayed messages)</td>
+                        <td>d (delayed messages)</td>
                         <td>When set, users who are not voiced or higher will have to wait a certain number of seconds
                             after joiing to speak. For example, /mode #channel +d 5 would require users to wait 5
                             seconds.</td>
                     </tr>
                     <tr>
-                        <td>f
-                            (anti-flood)</td>
+                        <td>f (anti-flood)</td>
                         <td>When set, users who are not voiced or higher will be kicked if they exceed the flood limit.
                             If * is set, users will also be banned. Takes the format of /mode #channel +f [*]<lines>:
                                 <sec></sec>
                         </td>
                     </tr>
                     <tr>
-                        <td>g
-                            (channel filter)</td>
+                        <td>g (channel filter)</td>
                         <td>Blocks messages matching the given glob mask. Used like /mode #channel +g *poop*.</td>
                     </tr>
                     <tr>
-                        <td>t
-                            (topic lock)</td>
+                        <td>t (topic lock)</td>
                         <td>Prevents users without +h or +o from changing the topic.</td>
                     </tr>
                     <tr>
-                        <td>u
-                            (auditorium)</td>
+                        <td>u (auditorium)</td>
                         <td>Makes normal users only see themselves and channel operators while channel operators can see
                             all users. Useful during a join flood.</td>
                     </tr>
                     <tr>
-                        <td>z
-                            (TLS-only)</td>
+                        <td>z (TLS-only)</td>
                         <td>Blocks users not using TLS from joining the channel.</td>
                     </tr>
                     <tr>
-                        <td>A
-                            (free invite)</td>
+                        <td>A (free invite)</td>
                         <td>Anybody in the channel may invite others (using the /invite command) to the channel.</td>
                     </tr>
                     <tr>
-                        <td>B
-                            (block caps)</td>
+                        <td>B (block caps)</td>
                         <td>Blocks messages with too many capital letters.</td>
                     </tr>
                     <tr>
-                        <td>D
-                            (delayed join)</td>
+                        <td>D (delayed join)</td>
                         <td>Delays join messages from users until they speak.</td>
                     </tr>
                     <tr>
-                        <td>E
-                            (block repeats)</td>
+                        <td>E (block repeats)</td>
                         <td>Allows filtering similar messages. If ~ is set, the messages will be blocked, if * is set,
                             the user will be banned. Takes the format of /mode #channel +E [~|*]<lines>:<sec>[:
                                     <difference>][:<backlog>]</td>
                     </tr>
                     <tr>
-                        <td>F
-                            (block nick flood)</td>
+                        <td>F (block nick flood)</td>
                         <td>Blocks nick changes when they exceed the specified rate. Takes the format of /mode #channel
                             +N <changes>:<sec></sec>
                         </td>
                     </tr>
                     <tr>
-                        <td>H
-                            (channel history)</td>
+                        <td>H (channel history)</td>
                         <td>Displays the last of lines of chat to joining users. is the maximum time to keep the
                             history. Takes the format of /mode #channel +F <changes>:<sec></sec>
                         </td>
                     </tr>
                     <tr>
-                        <td>J
-                            (block rejoin)</td>
+                        <td>J (block rejoin)</td>
                         <td>Prevents users from rejoining a channel shortly after they are kicked. Takes the format of
                             /mode #channel +J <seconds>.</td>
                     </tr>
                     <tr>
-                        <td>K
-                            (no knock)</td>
+                        <td>K (no knock)</td>
                         <td>Blocks /knock on the channel.</td>
                     </tr>
                     <tr>
-                        <td>L
-                            (forward)</td>
+                        <td>L (forward)</td>
                         <td>Forwards users to another channel when the user limit (set by +l) is reached.</td>
                     </tr>
                     <tr>
-                        <td>M
-                            (quiet unregistered)</td>
+                        <td>M (quiet unregistered)</td>
                         <td>Prevents unregistered users from speaking in the channel.</td>
                     </tr>
                     <tr>
-                        <td>N
-                            (no nick changes)</td>
+                        <td>N (no nick changes)</td>
                         <td>Prevents users from changing nicks while on the channel.</td>
                     </tr>
                     <tr>
-                        <td>R
-                            (block unregistered)</td>
+                        <td>R (block unregistered)</td>
                         <td>Prevents unregistered users from joining the channel.</td>
                     </tr>
                     <tr>
-                        <td>T
-                            (no notices)</td>
+                        <td>T (no notices)</td>
                         <td>Blocks /notices to the channel.</td>
                     </tr>
                     <tr>
-                        <td>X
-                            (restriction exemption)</td>
+                        <td>X (restriction exemption)</td>
                         <td>Makes users of or higher exempt to the specified restriction. For example, /mode #channel +X
                             flood:h would make halfops and higher immune to flood restrictions.</td>
                     </tr>
                     <tr>
-                        <td>j
-                            (join throttle)</td>
+                        <td>j (join throttle)</td>
                         <td>This mode takes one parameter of the form n:t, where n and t are positive integers. Only n
                             users may join in each period of t seconds, so with e.g. 3:10 only 3 users could join within
                             10 seconds. Invited users can join regardless of +j, but are counted as normal. You can use
@@ -329,40 +298,34 @@
                             good value for +j.</td>
                     </tr>
                     <tr>
-                        <td>k
-                            (password)</td>
+                        <td>k (password)</td>
                         <td>To enter the channel, you must specify the password on your /join command. Keep in mind that
                             modes locked with ChanServ's MLOCK command can be seen by anyone recreating the channel;
                             this includes keys. Also keep in mind that users being on the channel when +k is set will
                             see the key as well.</td>
                     </tr>
                     <tr>
-                        <td>l
-                            (join limit)</td>
+                        <td>l (join limit)</td>
                         <td>Takes a positive integer parameter. Limits the number of users who can be in the channel at
                             the same time.</td>
                     </tr>
                     <tr>
-                        <td>m
-                            (moderated)</td>
+                        <td>m (moderated)</td>
                         <td>Only opped and voiced users can send to the channel. This mode does not prevent users from
                             changing nicks.</td>
                     </tr>
                     <tr>
-                        <td>n
-                            (prevent external send)</td>
+                        <td>n (prevent external send)</td>
                         <td>Users outside the channel may not send messages to it. Keep in mind that bans and quiets
                             will not apply to external users.</td>
                     </tr>
                     <tr>
-                        <td>p
-                            (private)</td>
+                        <td>p (private)</td>
                         <td>Users will not be shown the channel in whois output unless they share the channel with the
                             requestor.</td>
                     </tr>
                     <tr>
-                        <td>s
-                            (secret)</td>
+                        <td>s (secret)</td>
                         <td>This channel will not appear on channel lists or WHO or WHOIS output unless you are on it.
                         </td>
                     </tr>

@@ -374,12 +374,12 @@ footer a {
 .mobile-modal-nav {
   z-index: 1;
   background-color: white;
-  width: 70%;
-  height: 100%;
-  max-width: 80vw;
+  width: 90%;
+  height: 1000px;
+  max-width: 90vw;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   background: #06243A;
 }
 
@@ -589,7 +589,7 @@ footer a {
   }
   footer {
     padding: 12px 25px;
-    height: 181px;
+    height: 250px;
   }
   .connect img {
     width: 30px;

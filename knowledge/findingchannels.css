@@ -373,9 +373,9 @@
   .mobile-modal-nav {
     z-index: 1;
     background-color: white;
-    width: 70%;
+    width: 90%;
     height: 100%;
-    max-width: 80vw;
+    max-width: 90vw;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -513,7 +513,7 @@
   
   @media screen and (max-width: 600px) {
     .bg-img {
-      min-height: 1300px;
+      min-height: 2200px;
     }
     .logo {
       font-size: 25px;
@@ -548,6 +548,7 @@
   
     .certfp {
       padding: 0 25px;
+      height: 1000px;
     }
     
     .certfp h1 {
@@ -591,7 +592,7 @@
     
     footer {
       padding: 12px 25px;
-      height: 181px;
+      height: 250px;
     }
     .connect img {
       width: 30px;
